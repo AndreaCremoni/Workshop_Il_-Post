@@ -221,65 +221,69 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 
 /* MODIFICA 1: Tornato "Titolo Piccolo" (Occhiello) */
 .cover-title {
-  font-size:  1.7rem;
+  font-size:  1.5rem;
   font-weight: 400;
   font-family: Garamond,'Times New Roman', Times, serif;
   letter-spacing: 0.4rem;
   color: #8B5A2B; /* Colore cuoio/marrone d'accento */
-  margin-bottom: -30px; /* Spazio esatto di 20px sopra il sottotitolo */
+  margin-bottom: -25px; /* Spazio esatto di 20px sopra il sottotitolo */
   text-align: left;
   user-select: none;
 }
 
 /* MODIFICA 1.1 e 4: Sottotitolo Grande, Bianco e su una sola riga con (2026) */
 .cover-subtitle {
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  /* Scaled down from clamp(2rem, 4.5vw, 3.5rem) */
+  font-size: clamp(1.7rem, 3.5vw, 2.7rem); 
   font-weight: 400;
-  font-family: Garamond,'Times New Roman', Times, serif;
+  font-family: Garamond, 'Times New Roman', Times, serif;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  color: #ffffff; /* Bianco puro per contrastare lo sfondo scuro */
+  color: #ffffff;
   margin-bottom: 0;
   text-align: left;
   line-height: 1.1;
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   user-select: none;
-  white-space: nowrap; /* Impedisce a (2026) di andare a capo */
+  white-space: nowrap;
 }
 
 /* Il Box Contenitore a tutta larghezza schermo */
 .cover-controls-container {
   position: absolute;
-  bottom: 100px;
+  bottom: 80px; /* Leggermente abbassato per bilanciare l'impilamento verticale */
   left: 0;
   width: 100%;                  
   
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
+  /* Dispone gli elementi in colonna (uno sopra l'altro) e li centra orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;         
   
   padding: 0 50px;             
-  column-gap: 60px;              /* MODIFICATO: Crea lo spazio di 30px + 30px dal centro */
+  gap: 25px; /* Spazio verticale tra la timeline e il bottone */
   box-sizing: border-box;
   z-index: 20;
 }
 
 /* La Timeline (Occupa TUTTA la metà sinistra disponibile) */
 .cover-timeline-wrapper {
-  width: 60%;                    
-  justify-self: end;             /* AGGIUNTO: Calamita la timeline verso il centro pagina */
-  margin-right: 60px;
+  /* Larghezza fissa a 800px, ma si restringe se lo schermo è più piccolo */
+  width: 100%;
+  max-width: 800px;           
+  height: 72px; 
+  
   display: flex;
   align-items: center;
-  height: 90px;
   border: 3px solid #8B5A2B;
   border-radius: 10px;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(6px);
   box-sizing: border-box;
   overflow: hidden;
+  margin: 0; /* Rimuove vecchi margini che potrebbero sbilanciare la centratura */
 }
-
 
 /* Pulsanti laterali freccia */
 .timeline-nav-btn {
@@ -353,21 +357,20 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 
 /* Il Bottone (Posizionato nella metà destra) */
 .cover-scroll-button {
-  justify-self: start;          /* Mantiene l'angolo sinistro fisso a 30px dal centro pagina */
-  width: auto;                  /* MODIFICATO: Rende la larghezza dinamica */
-  min-width: max-content;       /* AGGIUNTO: Costringe il box ad adattarsi esattamente al testo */
-  white-space: nowrap;          /* AGGIUNTO: Impedisce al titolo di andare a capo su più righe */
-  padding: 0.75rem 2.5rem;      /* MODIFICATO: Aggiunge spazio a destra e sinistra del testo */
+  /* Larghezza variabile che si adatta al testo */
+  width: auto;                  
+  min-width: max-content;       
+  white-space: nowrap;          
+  padding: 0.5rem 1.75rem; 
   margin: 0;
   box-sizing: border-box;
 
-  /* Stile grafico invariato */
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(6px);
   border: 2px solid #8B5A2B;
   color: #3a2c1c;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  font-size: 1.4rem;
+  font-size: 0.98rem; 
   font-weight: 400;
   letter-spacing: 0.07em;
   border-radius: 3.75rem;
@@ -577,14 +580,12 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 
 .timeline-line {
   box-sizing: content-box;
-  width: 30px;
-  height: 5px; /* Spessore visivo del tick */
-  
+  width: 24px; /* Scaled down from 30px */
+  height: 5px; /* Scaled down from 5px */
   margin: 0;
-  padding: 13px 0;
+  padding: 13px 0; /* Scaled down from 13px */
   background-color: #ffffff;
-  background-clip: content-box; /* Forza il colore solo sui 7px di altezza centrale */
-  
+  background-clip: content-box; 
   cursor: pointer;
   position: relative;
   transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s, opacity 0.4s ease, transform 0.4s ease;
@@ -592,7 +593,7 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 
 /* Forzatura larghezza massima per i positivi */
 .timeline-line.always-long {
-  width: 150px !important;
+  width: 130px !important;
   background-color: #ffffff;
   background-clip: content-box;
 }
@@ -608,7 +609,7 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 }
 
 .timeline-line.hovered {
-  width: 150px;
+  width: 130px;
   background-color: #ffffff;
   background-clip: content-box;
   z-index: 50;
@@ -616,13 +617,13 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 
 .timeline-line.hovered-above,
 .timeline-line.hovered-below {
-  width: 120px;
+  width: 90px;
   background-color: #ffffff;
   background-clip: content-box;
 }
 
 .timeline-line.hovered-near {
-  width: 70px;
+  width: 55px;
   background-color: #ffffff;
   background-clip: content-box;
 }
@@ -630,7 +631,7 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
 .timeline-line.active {
   background-color: #a83232;
   background-clip: content-box;
-  width: 150px;
+  width: 130px;
   z-index: 25;
 }
 
@@ -1136,34 +1137,18 @@ html:has(#initial-cover:not(.fade-out)) .home-view {
   border: 1px solid #e0e0e0;
 }
 
-@media (max-width: 900px) {
-  
-  /* Trasforma la griglia da 2 colonne a 1 colonna unica */
-  .cover-controls-container {
-    grid-template-columns: 1fr; 
-    row-gap: 20px;              /* Spazio verticale tra timeline e bottone */
-    column-gap: 0;
-    bottom: 80px;               /* Abbassiamo il blocco per non coprire i testi sui telefoni */
-    width: 90%;                 /* Sfrutta quasi tutto lo schermo del telefono */
+@media (max-width: 800px) {
+.cover-controls-container {
+    padding: 0 20px; /* Riduce i padding laterali sui telefoni */
+    bottom: 60px;
   }
 
-  /* La timeline torna a distendersi a tutta larghezza al centro */
   .cover-timeline-wrapper {
-    justify-self: center;       /* Centra la timeline nello schermo */
-    width: 100%;
-    max-width: 450px;           /* Larghezza ottimale su smartphone */
-    height: 75px;               /* Leggermente più bassa per i dispositivi mobili */
+    height: 60px; /* Abbassa un po' l'altezza della barra per recuperare spazio sul telefono */               
   }
 
-  /* Ripristina la corretta proporzione della barra interna senza romperla */
-  .cover-timeline-bar {
-    height: 100%; 
-  }
-
-  /* Centra il bottone sotto la timeline */
   .cover-scroll-button {
-    justify-self: center;       /* Centra il bottone sotto la timeline */
-    width: 200px;               /* Accorciato leggermente per estetica mobile */
-    font-size: 1.2rem;
+    white-space: normal; /* Permette al testo lungo del bottone di andare a capo su due righe nei telefoni */
   }
+
 }

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.67">
+  <title>Masterpost</title>
+  <link rel="stylesheet" href="style.css?v=8">
+</head>
+
+<body class="cover-active lock-scroll">
+
+<!-- NUOVA COPERTINA (montagna + MASTERPOST + timeline + scorri giù) -->
+  <section class="cover-section" id="cover-section">
+    <div class="cover-hero">
+      
+      <!-- Contenitore SOLO per i testi (Evita conflitti di posizionamento) -->
+      <div class="cover-container">
+        <h3 class="cover-title">Masterpost</h3>
+        <h3 class="cover-subtitle">La Guerra in Iran</h3>
+      </div>
+
+      <div class="cover-controls-container">
+
+      <!-- Elementi di controllo spostati come figli diretti di cover-hero -->
+      <div class="cover-timeline-wrapper">
+        <button class="timeline-nav-btn btn-left" onclick="moveTimeline(-1)">&lt;</button>
+        <div class="cover-timeline-bar">
+          <div class="cover-timeline-indicator"></div>
+        </div>
+        <button class="timeline-nav-btn btn-right" onclick="moveTimeline(1)">&gt;</button>
+      </div>
+
+      <button class="cover-scroll-button" onclick="scrollToMain()">
+        scorri giù ↓
+      </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTENITORE PRINCIPALE (header + subheader + masterpost + home view) -->
+  <div class="main-wrapper" id="main-wrapper">
+    <header class="top-header">
+      <h1 class="header-logo">Il Post</h1>
+      <h1 class="header-title">La Guerra in Iran</h1>
+      <div class="header-right">
+        <button class="cover-back-button" id="back-to-cover-btn">Mostra Copertina ↑</button>
+      </div>
+    </header>
+
+<div class="subheader" id="subheader">
+  <div class="subheader-filters">
+    <button class="filter-btn active" data-filter="all">Tutti gli articoli</button>
+    <button class="filter-btn" data-filter="OM">Operazioni militari</button>
+    <button class="filter-btn" data-filter="ES">Energia e Stretto di Hormuz</button>
+    <button class="filter-btn" data-filter="DN">Diplomazia e negoziati</button>
+    <button class="filter-btn" data-filter="VC">Vittime civili</button>
+    <button class="filter-btn" data-filter="SA">Strategia e analisi politica</button>
+    <button class="filter-btn" data-filter="ER">Escalation regionale</button>
+    <button class="filter-btn" data-filter="AL">Attori e Leadership</button>
+  </div>
+</div>
+
+    <div class="main-content">
+      <div class="sidebar">
+        <header class="editorial-header">
+          <span class="pub-meta">Indice</span>
+        </header>
+        <div class="timeline-bar" id="timeline-bar"></div>
+      </div>
+
+      <main class="article-area" id="article-area"></main>
+
+  
+
+
+    <!-- Sezione per mappa interattiva -->
+  
+    <div class="right-panel" id="right-panel">
+      <div class="map-container">
+        <h4 class="map-captionTitoloPrincipale">Mappa Interattiva</h4>
+        
+        <div class="map-rectangle">
+          <button class="map-nav-btn prev-btn" id="map-prev">&lt;</button>
+          
+          <img src="BasiRisorse.png" alt="Mappa Interattiva" id="map-img" class="map-image-content">
+          
+          <button class="map-nav-btn next-btn" id="map-next">&gt;</button>
+        </div>
+        
+        <p class="map-captionTitoloImmagine" id="map-caption">Basi e risorse di appoggio degli Stati Uniti attaccate dall'Iran</p>
+
+      </div>
+
+      
+      <hr class="panel-divider">
+
+
+      <!-- Sezione per spiegato bene e altri contenuti -->
+
+      <div class="spiegato-bene-container">
+        <h4 class="sb-section-title">Spiegato bene</h4>
+        <div class="sb-articles-list">
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/02/28/cronologia-escalation-israele-stati-uniti-iran/" target="_blank" rel="noopener" class="sb-title">Come siamo arrivati fin qui tra Stati Uniti, Iran e Israele</a>
+          </div>
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/02/28/israele-ha-lanciato-un-attacco-contro-liran/" target="_blank" rel="noopener" class="sb-title">Cosa sappiamo dell'attacco di Israele e degli Stati Uniti contro l'Iran</a>
+          </div>
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/03/01/attacchi-iran-paesi-del-golfo/" target="_blank" rel="noopener" class="sb-title">Perché l'Iran attacca obiettivi civili nei paesi del Golfo</a>
+          </div>
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/03/02/iran-guerra-risposte/" target="_blank" rel="noopener" class="sb-title">Le cose da sapere sull'Iran per capire questa guerra</a>
+          </div>
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/03/02/trump-iran-venezuela/" target="_blank" rel="noopener" class="sb-title">I due approcci alla guerra di Trump</a>
+          </div>
+           <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/03/08/iran-mojtaba-khamenei/" target="_blank" rel="noopener" class="sb-title">Chi è Mojtaba Khamenei</a>
+          </div>
+          <div class="sb-article">
+            <div class="sb-image-placeholder"></div>
+            <a href="https://www.ilpost.it/2026/03/03/cosa-sono-i-droni-shahed-inventati-dalliran/" target="_blank" rel="noopener" class="sb-title">Cosa sono i droni Shahed, inventati dall'Iran</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+ 
+ 
+  <!-- Sezione homepage finta -->
+
+    <div class="home-view" id="home-view" style="display: none;">
+      <button class="back-button" id="back-button">← Back to Timeline</button>
+      <div class="newspaper-layout">
+        <!-- (contenuto fittizio invariato) -->
+        <div class="featured-article">
+          <div class="featured-placeholder"></div>
+          <div class="featured-text">
+            <div class="featured-headline"></div>
+            <div class="featured-description"></div>
+          </div>
+        </div>
+        <div class="grid-articles">
+          <div class="grid-item large"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+          <div class="grid-item"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+          <div class="grid-item"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+          <div class="grid-item"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+          <div class="grid-item"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+          <div class="grid-item large"><div class="article-image"></div><div class="article-headline"></div><div class="article-snippet"></div></div>
+        </div>
+        <div class="sidebar-ads">
+          <div class="ad-block"></div>
+          <div class="ad-block"></div>
+          <div class="ad-block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- COVER INIZIALE --> 
+  <div id="initial-cover" class="initial-cover">
+    <div class="cover-content-wrapper">
+      <button id="masterpost-button" class="wave" onclick="triggerCoverAnimation(event)">MasterPost Guerra Usa Iran</button>
+      <div id="transition-ripple" class="transition-ripple"></div>
+    </div>
+  </div>
+
+  <script src="script.js?v=8" defer></script>
+</body>
+</html>
